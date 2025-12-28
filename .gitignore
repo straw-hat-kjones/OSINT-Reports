@@ -1,0 +1,25 @@
+# Obsidian
+vault/.obsidian/workspace.json
+vault/.obsidian/workspace-mobile.json
+vault/.obsidian/cache
+.obsidian/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Optional: Exclude private content
+# vault/Private/
+# vault/Drafts/
+# vault/Templates/
