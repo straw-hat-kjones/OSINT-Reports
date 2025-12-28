@@ -1,148 +1,148 @@
 ---
+title: "HELLCAT Ransomware Group"
+created: 2025-12-28
+date: 2025-12-28
+category: "[[Threat Actor]]"
+type: eCrime
+origin: Unknown
+motivation: Financial
+status: Active
+first_seen: 2024-06
+
 aliases:
-  - HellCat
   - HELLCAT
-  - ICA Group
-type: threat-actor
-classification: eCrime
-origin: Jordan, UAE
-status: active
-first_seen: 2024-10
-motivation:
-  - financial
-  - ideological
+  - HellCat
+
+affiliated_groups:
+  - "[[Threat Actors/Morpheus]]"
+
+tools:
+  - "[[Malware/Infostealer/Lumma Stealer]]"
+  - "[[Malware/Cobalt Strike]]"
+  - "[[Malware/SliverC2]]"
+  - Netcat
+  - Netscan
+
+techniques:
+  - T1566.001
+  - T1190
+  - T1059.001
+  - T1562.001
+  - T1620
+  - T1046
+  - T1021
+  - T1486
+
+targets:
+  sectors:
+    - Government
+    - Energy
+    - Telecommunications
+    - Education
+    - Automotive
+  geography:
+    - Global
+
 tags:
   - "#threat-actor"
   - "#ransomware"
   - "#raas"
-  - "#active-threat"
----
-
-# Hellcat
-
-Hellcat is an emerging Ransomware-as-a-Service (RaaS) threat group that surfaced in Q4 2024. The group combines ideological motivations—targeting U.S. and Israeli organizations—with financially-driven extortion operations.
-
-## Quick Reference
-
-| Attribute | Details |
-|-----------|---------|
-| **Type** | eCrime / RaaS |
-| **Origin** | Jordan, UAE |
-| **Motivation** | Financial, Ideological |
-| **Status** | Active |
-| **First Seen** | October 2024 |
-
-## Key Operators
-
-- **Pryx (HolyPryx)** - Founding leader
-- **Rey (Hikki-Chan)** - Administrator
-- **Grep** - Operator
-
-## Signature TTPs
-
-- Jira credential exploitation via infostealer logs
-- Multi-stage PowerShell infection chains
-- SliverC2 for command and control
-- Custom ransomware (AES-CBC + RSA)
-
-## Associated Malware
-
-- [[Malware/Hellcat Ransomware]]
-- [[Malware/SliverC2]]
-- [[Malware/Cobalt Strike]]
-- [[Malware/LummaStealer]]
-
-## Related Reports
-
-- [[Reports/CTID-002-2025_Hellcat_Threat_Actor_Profile]]
-
-## Notable Victims
-
-- Schneider Electric (November 2024)
-- Telefonica (January 2025)
-- Jaguar Land Rover (March 2025)
-- Orange Romania (February 2025)
-- Israel's Knesset (October 2024)
----
-title: "Hellcat Ransomware"
-created: 2025-12-27
-date: 2025-12-27
-category: "[[Threat Report]]"
-report_type: threat_actor_profile
-tlp: TLP:AMBER
-criticality: high
-rating: 5
-
-threat_actors:
-  - "[[Threat Actors/Hellcat]]"
-  - "[[Threat Actors/Morpheus]]"
-  - "[[Threat Actors/Scattered Spider]]"
-malware:
-  - "[[Malware/Ransomware/Hellcat Ransomware]]"
-  - "[[Malware/Ransomware/Morpheus Ransomware]]"
-  - "[[Malware/SliverC2]]"
-  - "[[Malware/LummaStealer]]"
-techniques:
-  - T1566.001
-  - T1190
-  - T1078
-  - T1059.001
-  - T1486
-
-confidence: high
-sources:
-  - SentinelOne
-  - KELA Cyber
-
-tags:
-  - "#threat-intel"
-  - "#threat-actor-profile"
-  - "#ransomware"
-  - "#raas"
-  - "#hellcat"
+  - "#infostealer"
   - "#jira-exploitation"
 ---
 
-# Hellcat Ransomware
-
-> [!info] Related Profile
-> Hellcat shares an identical codebase with [[Threat Actors/Morpheus]]. See the comprehensive profile at [[Threat Actors/Morpheus]] for full technical analysis.
+# HELLCAT Ransomware Group
 
 ## Overview
 
-Hellcat is a Ransomware-as-a-Service (RaaS) operation that emerged in mid-2024, originally branded as "ICA Group." The group operates transparently with active affiliate recruitment and has been confirmed to share an identical codebase with [[Threat Actors/Morpheus]].
+HELLCAT is a Ransomware-as-a-Service (RaaS) operation that emerged in mid-2024 and has rapidly established itself as a sophisticated threat actor. The group is distinguished by its consistent exploitation of Atlassian Jira credentials harvested via infostealer malware, a technique that has proven highly effective against enterprise targets.
 
-## Leadership (Unmasked)
+## Key Characteristics
 
-| **Persona** | **Real Identity** | **Origin** |
-|-------------|-------------------|------------|
-| Rey (Hikki-Chan, ggyaf) | Saif Khader | Amman, Jordan |
-| Pryx (HolyPryx, Sp1d3r) | "Adem" (partial) | UAE |
-| Grep | Unknown | Unknown |
-| IntelBroker | Unknown | BreachForums |
+| Attribute | Details |
+|-----------|---------|
+| **First Observed** | Mid-2024 |
+| **Type** | Ransomware-as-a-Service (RaaS) |
+| **Motivation** | Financial |
+| **Status** | Active |
+| **Key Members** | "Pryx" (founder), "Rey", "Grep" |
 
-## Signature TTPs
+## Aliases
 
-- **Jira Credential Exploitation**: Primary initial access via infostealer-harvested Jira credentials
-- **PowerShell Infection Chain**: S1.ps1 → Payload.ps1 → Isma.ps1 → Shellcode.ps1 → Stager.woff
-- **SliverC2**: Primary command-and-control framework
-- **SFTP Exfiltration**: Data exfiltrated via SFTP, sometimes to waifu[.]cat
+- HELLCAT
+- HellCat
 
-## Key IOCs
+## Notable Campaigns
 
-| **Type** | **Value** |
-|----------|-----------|
-| SHA1 | `b834d9dbe2aed69e0b1545890f0be6f89b2a53c7` |
-| Tor DLS | `hellcakbszllztlyqbjzwcbdhfrodx55wq77kmftp4bhnhsnn5r3odad[.]onion` |
-| Email | `h3llr4ns[@]onionmail[.]com` |
+| Date | Victim | Impact |
+|------|--------|--------|
+| Q4 2024 | Schneider Electric | 400,000 rows of user data; 40GB exfiltrated |
+| Q4 2024 | Telefonica | Jira exploitation; data exfiltration |
+| Q4 2024 | Orange | AI-amplified data leak |
+| Q4 2024 | Pinger | Corporate data breach |
+| March 2025 | [[Campaigns/JLR March 2025 Data Breach\|Jaguar Land Rover]] | 700+ internal documents; 350GB data |
 
-## Notable Victims
+## Tactics, Techniques, and Procedures
 
-- Schneider Electric (Nov 2024) - 40GB
-- Telefónica (Jan 2025, May 2025) - 342GB total
-- Jaguar Land Rover (Mar 2025) - 350GB+
-- Orange Romania (Feb 2025) - 6.5GB
+### Initial Access
+
+HELLCAT primarily gains initial access through two vectors:
+
+1. **Infostealer Credential Harvesting**: The group leverages credentials stolen by infostealer malware (particularly Lumma Stealer) to access corporate Atlassian Jira instances. These credentials are often years old but remain valid due to poor credential hygiene.
+
+2. **Exploit Public-Facing Applications** (T1190): Targets vulnerabilities in exposed systems, including zero-day exploits in enterprise tools like Jira.
+
+### Execution
+
+The group employs multi-stage PowerShell infection chains:
+- Stage 1: Initial PowerShell script establishes foothold
+- Stage 2: Downloads additional payloads including AMSI bypass scripts
+- Stage 3: Retrieves final payload for in-memory execution
+
+### Defense Evasion
+
+- **AMSI Bypass** (T1562.001): Dedicated scripts to disable Windows Antimalware Scan Interface
+- **Reflective Code Loading** (T1620): Executes payloads directly in memory to evade file-based detection
+
+### Lateral Movement
+
+Uses legitimate tools to blend with normal IT activity:
+- Netcat for establishing communication channels
+- Netscan for network discovery
+- Standard Windows utilities (living-off-the-land)
+
+## Infrastructure
+
+HELLCAT operates open directories for payload staging and uses reflective loading techniques to minimize file-based artifacts. The group's infrastructure often overlaps with Morpheus ransomware, suggesting shared tooling or affiliate relationships.
+
+## Detection Opportunities
+
+1. Monitor for unauthorized access to Atlassian Jira instances, especially from unusual IP addresses
+2. Detect encoded PowerShell commands and AMSI bypass attempts
+3. Alert on network scanning activity using common tools
+4. Track credential usage patterns for dormant or third-party accounts
+
+## Recommendations
+
+- Implement MFA on all Atlassian products
+- Rotate credentials regularly, especially for third-party access
+- Monitor for infostealer infections and treat compromised credentials as persistent threats
+- Restrict network access to Jira instances
+
+## References
+
+- Picus Security. (2025, March 13). HellCat Ransomware: Exposing the TTPs of a Rising Ransomware Threat
+- Bridewell. (2025, February 28). Who are Hellcat Ransomware Group?
+- Cato Networks. (2025, June 15). Unmasking Hellcat: Not Your Average Ransomware Gang
+- Halcyon. (2025, April 10). Emerging Threat Actor Hellcat Exemplifies Continued Innovation
 
 ---
 
-*See [[Threat Actors/Morpheus]] for complete technical analysis, MITRE ATT&CK mapping, and detection guidance.*
+## Related Intelligence
+
+```dataview
+TABLE created, report_type, confidence
+FROM "Reports"
+WHERE contains(threat_actors, "[[Threat Actors/HELLCAT]]")
+SORT created DESC
+```
